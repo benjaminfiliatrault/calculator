@@ -1,10 +1,16 @@
 use calculator::Error;
+use window::calc_windows;
 
 use crate::calculator::Calculator;
 
 mod calculator;
+mod window;
 
 fn main() -> Result<(), Error> {
+
+
+    calc_windows();
+
     loop {
         let mut input = String::new();
 

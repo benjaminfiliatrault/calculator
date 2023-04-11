@@ -13,9 +13,7 @@ pub enum Token {
     Bracket(char),
 } 
 
-pub struct Calculator {
-
-}
+pub struct Calculator {}
 
 #[derive(Debug)]
 pub enum Error {
@@ -150,6 +148,4 @@ impl Calculator {
         
         return stack.pop();
     }
-
-
 }

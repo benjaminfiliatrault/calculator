@@ -10,6 +10,7 @@ use bevy::{
     winit::WinitSettings
 };
 
+use config::{WINDOW_WIDTH, WINDOW_HEIGHT};
 use setup::setup;
 use button_system::button_system;
 use token_manager::*;
@@ -33,7 +34,7 @@ fn main() {
             title: ("Calculator").to_string(),
             resizable: false,
             transparent: true,
-            resolution: WindowResolution::new(250.0, 300.0),
+            resolution: WindowResolution::new(WINDOW_WIDTH, WINDOW_HEIGHT),
             ..default()
         }),
         ..default()

@@ -14,7 +14,8 @@ pub fn button_system(
 
         match *interaction {
             Interaction::Clicked => {
-                token_state.value.push_str(text.sections[0].value.as_str());
+                // token_state.value.push_str(text.sections[0].value.as_str());
+                handle_interaction(&mut token_state, text.sections[0].value.as_str());
                 *color = PRESSED_BUTTON.into();
             }
             Interaction::Hovered => {
@@ -25,4 +26,23 @@ pub fn button_system(
             }
         }
     }
+}
+
+
+fn handle_interaction(mut token_state: &mut TokenManager, btn_token: &str) {
+    if btn_token == "AC" {
+        token_state.value = "0".to_string();
+        return;
+    }
+
+    // We don't want to push stuff
+    // after 0 if that's the only value
+    if token_state.value == "0" {
+        // TODO: handle exceptions like operators and decimal pointer
+        token_state.value = btn_token.to_string();
+        return;
+    }
+
+
+    token_state.value.push_str(btn_token);
 }
